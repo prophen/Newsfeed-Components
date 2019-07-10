@@ -112,6 +112,19 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+const articles = document.querySelector('.articles')
+
+data.forEach(article => {
+  document.querySelector('.articles').appendChild(
+    createArticle(
+      article.title,
+      article.date,
+      article.firstParagraph,
+      article.secondParagraph,
+      article.thirdParagraph
+    ))
+})
+
 function createArticle(title, date, p1, p2, p3){
 
   // define new elements
@@ -122,6 +135,15 @@ function createArticle(title, date, p1, p2, p3){
   const secondParagraph = document.createElement('p')
   const thirdParagraph = document.createElement('p')
   const expandButton = document.createElement('span')
+
+  // append children
+  articleContainer.appendChild(articleTitle)
+  articleContainer.appendChild(articleDate)
+  articleContainer.appendChild(firstParagraph)
+  articleContainer.appendChild(secondParagraph)
+  articleContainer.appendChild(thirdParagraph)
+  articleContainer.appendChild(expandButton)
+  
   
   // set class names
   articleContainer.classList.add('article')
@@ -130,10 +152,13 @@ function createArticle(title, date, p1, p2, p3){
 
   // set text content
   articleTitle.textContent = title
-  
+  articleDate.textContent = date
+  firstParagraph.textContent = p1
+  secondParagraph.textContent = p2
+  thirdParagraph.textContent = p3
+  expandButton.textContent = 'expand'
 
 
-  document.querySelector('.articles').appendChild(articleContainer)
+return articleContainer
 }
 
-createArticle()
