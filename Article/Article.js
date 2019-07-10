@@ -158,7 +158,8 @@ function createArticle(title, date, p1, p2, p3){
   thirdParagraph.textContent = p3
   expandButton.textContent = 'expand'
 
-
+  // make the article expand on click
+  expandButton.addEventListener('click', ()=> {articleContainer.classList.toggle('article-open')})
 return articleContainer
 }
 
