@@ -24,22 +24,31 @@ let menuItems = [
     const ul = document.createElement('ul')
 
     menu.appendChild(ul)
+    menu.classList.add('menu')
 
   // Pass the function an array as it's only argument.
 
   // Step 2: Iterate over the array creating a list item <li> element for each item in the array. 
     
-    menuItems.map(item => {
-      const li = document.createElement('li')
-    })
   // Add those items to the <ul>
 
+  menuItems.map(item => {
+    const li = document.createElement('li')
+    li.textContent = item
+    ul.appendChild(li)
+  })
   // Step 3: Using a DOM selector, select the menu button currently on the DOM.
   
+  const menuButton = document.querySelector('.menu-button')
   // Step 4: add a click handler to the menu button, when clicked it should toggle the class 'menu--open' on the menu itself
 
-  // Step 5: return the menu component.
+  menuButton.addEventListener('click', () => {
+    menu.classList.toggle('menu--open')
+  })
 
+  // Step 5: return the menu component.
+  return menu
   // Step 6: add the menu component to the DOM.
   }
+  document.body.appendChild(createMenu(menuItems))
 
